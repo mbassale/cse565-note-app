@@ -1,14 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { loremIpsum } from 'lorem-ipsum';
+import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 
 const NoteDisplayScreen = ({ note }) => {
-  const text = loremIpsum({ count: 1, units: 'paragraphs' });
+  const text = loremIpsum({ count: 50, units: 'words' });
   return (
     <div className="container">
       <h1 className="my-3">{note.title}</h1>
-      <textarea readOnly={true} value={text} className="form-control mb-3" />
-      <Link to="/workspace/1" className="btn btn-primary mt-3">Back to Workspace</Link>
+      <textarea readOnly={true} value={text} className="form-control mb-3" data-testid="content-text-area" />
+      <Link to="/workspace/1" className="btn btn-primary mt-3" data-testid="navigation-button">
+        <BsFillArrowLeftCircleFill style={{ marginRight: '0.2rem', paddingBottom: '0.1rem' }} /> Back to Workspace
+      </Link>
     </div>
   );
 };
