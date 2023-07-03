@@ -26,6 +26,10 @@ test('WorkspaceScreen component with Navigation', async () => {
   // Wait for the screen to update after the click
   await userEvent.click(noteButton);
 
+  // Check if the NoteDisplayScreen screen has a text area with at least 50 words
+  const contentTextArea = screen.getByTestId('content-text-area');
+  expect(contentTextArea).toBeInTheDocument();
+
   // Check if the new screen contains a note with title 'Note #1'
   expect(screen.getByText('Note #1')).toBeInTheDocument();
 });
