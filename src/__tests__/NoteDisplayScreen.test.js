@@ -6,7 +6,7 @@ import App from '../App';
 test('Note display screen shows a note text', async () => {
   // Render the App
   render(
-      <App />
+    <App />
   );
 
   // Find the first workspace (Workspace #1) and click it
@@ -30,4 +30,6 @@ test('Note display screen shows a note text', async () => {
   // Check if we have a navigation button
   const navigationButton = screen.getByTestId('navigation-button');
   expect(navigationButton).toBeInTheDocument();
+  // The navigation button should have an SVG icon
+  expect(navigationButton.querySelector('svg')).toBeInTheDocument();
 });

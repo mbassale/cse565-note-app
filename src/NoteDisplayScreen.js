@@ -8,7 +8,7 @@ const NoteDisplayScreen = ({ note }) => {
   return (
     <div className="container">
       <h1 className="my-3">{note.title}</h1>
-      <textarea readOnly={true} value={text} className="form-control mb-3" data-testid="content-text-area" />
+      <textarea readOnly={true} value={text} className="form-control mb-3" data-testid="content-text-area" style={{ overflowY: 'auto' }} />
       <Link to="/workspace/1" className="btn btn-primary mt-3" data-testid="navigation-button">
         <BsFillArrowLeftCircleFill style={{ marginRight: '0.2rem', paddingBottom: '0.1rem' }} /> Back to Workspace
       </Link>

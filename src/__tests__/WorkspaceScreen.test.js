@@ -14,6 +14,10 @@ test('from workspace page to note page on button click', async () => {
   // Wait for the screen to update after the click
   await userEvent.click(workspaceButton);
 
+  // The WorkspaceScreen component should have 3 Notes
+  const noteLinks = await screen.findAllByText(/Note #\d/i);
+  expect(noteLinks).toHaveLength(3);
+
   // Check if the new screen contains a note with title 'Note #1'
   expect(screen.getByText('Note #1')).toBeInTheDocument();
 
