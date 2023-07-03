@@ -3,11 +3,18 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from '../App';
 
-test('from welcome screen navigates to workspace page on button click', async () => {
+test('WelcomeScreen Component Test with Navigation', async () => {
   // Render your whole App
   render(
-      <App />
+    <App />
   );
+
+  // The WelcomeScreen component should have 3 Workspaces
+  const workspaceLinks = await screen.findAllByText(/Workspace #\d/i);
+  expect(workspaceLinks).toHaveLength(3);
+
+  // Check if we have a Create New Workspace button
+  expect(screen.getByText('Create New Workspace')).toBeInTheDocument();
 
   // Find the first workspace (Workspace #1) and click it
   const button = screen.getByRole('link', { name: /Workspace #1/i });
