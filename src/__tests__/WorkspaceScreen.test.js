@@ -18,6 +18,10 @@ test('WorkspaceScreen component with Navigation', async () => {
   const noteLinks = await screen.findAllByText(/Note #\d/i);
   expect(noteLinks).toHaveLength(3);
 
+  // Check if we have navigation buttons
+  expect(screen.getByText('Create New Note')).toBeInTheDocument();
+  expect(screen.getByText('Back to Welcome Screen')).toBeInTheDocument();
+
   // Check if the new screen contains a note with title 'Note #1'
   expect(screen.getByText('Note #1')).toBeInTheDocument();
 
