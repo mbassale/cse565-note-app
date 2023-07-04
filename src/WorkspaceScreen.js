@@ -13,19 +13,19 @@ const Workspace = ({ workspace }) => {
   return (
     <div className="container">
       <h1 className="my-3">{workspace.name}</h1>
-      <div className="list-group">
-        {notes.map(note => (
-          <Link to={`/note/${note.id}`} key={note.id} className="list-group-item list-group-item-action">
-            <BsFiletypeTxt style={{ marginRight: '0.2rem', paddingBottom: '0.1rem' }} />
-            {note.title}
-          </Link>
-        ))}
-      </div>
       <Link to={`/workspace/${workspace.id}/note/new`} className="btn btn-primary mt-3"
         style={{ marginRight: '0.3rem' }} data-testid="create-new-note-button">Create New Note</Link>
       <Link to="/" className="btn btn-success mt-3" data-testid="back-button">
         <BsFillArrowLeftCircleFill style={{ marginRight: '0.2rem', paddingBottom: '0.1rem' }} /> Back to Welcome Screen
       </Link>
+      <div className="list-group">
+        {notes.map(note => (
+          <Link to={"#"} key={note.id} className="list-group-item list-group-item-action">
+            <BsFiletypeTxt style={{ marginRight: '0.2rem', paddingBottom: '0.1rem' }} />
+            {note.title}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };

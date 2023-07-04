@@ -10,8 +10,6 @@ import { loremIpsum } from 'lorem-ipsum';
 const App = () => {
   const [workspaces, setWorkspaces] = useState([
     { id: 1, name: 'Workspace #1' },
-    { id: 2, name: 'Workspace #2' },
-    { id: 3, name: 'Workspace #3' },
   ]);
 
   return (
